@@ -28,7 +28,7 @@ function getConfig()
 	username = cfgHandle.getSectionedValue("login", "username")
 	password = cfgHandle.getSectionedValue("login", "password")
 	passOnBoot = cfgHandle.getSectionedValue("login", "passOnBoot")
-	updater = cfgHandler.getSectionedValue("updater", "bootOnUpdater")
+	updater = cfgHandle.getSectionedValue("updater", "bootOnUpdater")
 	_G.username = username
 	_G.password = password
 	_G.passOnBoot = passOnBoot
@@ -112,9 +112,9 @@ function getSpace()
 	return (z1/1024)
 end
 function updater()
-	cfgHandler= settings.openSettingsFile("TwoOS/config.cfg")
-	cfgHandler.setSectionedValue("updater", "bootOnUpdater", "false")
-	cfgHandler.save("TwoOS/config,cfg")
+	cfgHandle = settings.openSettingsFile("TwoOS/config.cfg")
+	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "false")
+	cfgHandle.save("TwoOS/config,cfg")
 	term.setTextColor(colors.white)
 	term.setBackgroundColor(colors.blue)
 	term.clear()
@@ -187,9 +187,9 @@ runProg = function(program, ...)
 	nWindow1.setVisible(false)
 end
 function showUpdater()
-	cfgHandler= settings.openSettingsFile("TwoOS/config.cfg")
-	cfgHandler.setSectionedValue("updater", "bootOnUpdater", "true")
-	cfgHandler.save("TwoOS/config.cfg")
+	cfgHandle = settings.openSettingsFile("TwoOS/config.cfg")
+	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "true")
+	cfgHandle.save("TwoOS/config.cfg")
 end
 --function to shutdown or reboot
 function takeDown( _action )
