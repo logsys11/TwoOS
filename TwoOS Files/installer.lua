@@ -80,7 +80,7 @@ function writeSettings(username, password, passOnBoot)
 	cfgHandle.setSectionedValue("login", "password", password)
 	cfgHandle.setSectionedValue("login", "passOnBoot", passOnBoot)
 	cfgHandle.addSection("updater")
-	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "false")
+	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "no")
 	cfgHandle.save("TwoOS/config.cfg")
 end
 

@@ -28,10 +28,11 @@ function getConfig()
 	username = cfgHandle.getSectionedValue("login", "username")
 	password = cfgHandle.getSectionedValue("login", "password")
 	passOnBoot = cfgHandle.getSectionedValue("login", "passOnBoot")
-	update = cfgHandle.getSectionedValue("updater", "bootOnUpdater")
+	--update = cfgHandle.getSectionedValue("updater", "bootOnUpdater")
 	_G.username = username
 	_G.password = password
 	_G.passOnBoot = passOnBoot
+	--if update == "yes" then _G.update = true else _G.update = false end
 end
 
 function requestPass()
@@ -112,9 +113,9 @@ function getSpace()
 	return (z1/1024)
 end
 function updater()
-	cfgHandle = settings.openSettingsFile("TwoOS/config.cfg")
-	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "false")
-	cfgHandle.save("TwoOS/config,cfg")
+	--cfgHandle = settings.openSettingsFile("TwoOS/config.cfg")
+	--cfgHandle.setSectionedValue("updater", "bootOnUpdater", "no")
+	--cfgHandle.save("TwoOS/config.cfg")
 	term.setTextColor(colors.white)
 	term.setBackgroundColor(colors.blue)
 	term.clear()
@@ -188,7 +189,7 @@ runProg = function(program, ...)
 end
 function showUpdater()
 	cfgHandle = settings.openSettingsFile("TwoOS/config.cfg")
-	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "true")
+	cfgHandle.setSectionedValue("updater", "bootOnUpdater", "yes")
 	cfgHandle.save("TwoOS/config.cfg")
 end
 --function to shutdown or reboot
@@ -217,7 +218,10 @@ end
 --get clicks and draw menus
 function mainFunc()
 	getConfig()
-	if update then updateOS() else
+	update = false
+	if update then
+		updater()
+	else
 		if passOnBoot then requestPass() end
 		drawDesktop()
 		while true do
@@ -249,7 +253,7 @@ function mainFunc()
 						showAbout()
 						printed = false
 					elseif y == 9 then
-						showUpdater()
+						updater()
 					end
 				end
 			end
