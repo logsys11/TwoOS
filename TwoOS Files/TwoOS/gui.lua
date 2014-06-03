@@ -28,7 +28,7 @@ function getConfig()
 	username = cfgHandle.getSectionedValue("login", "username")
 	password = cfgHandle.getSectionedValue("login", "password")
 	passOnBoot = cfgHandle.getSectionedValue("login", "passOnBoot")
-	updater = cfgHandle.getSectionedValue("updater", "bootOnUpdater")
+	update = cfgHandle.getSectionedValue("updater", "bootOnUpdater")
 	_G.username = username
 	_G.password = password
 	_G.passOnBoot = passOnBoot
@@ -217,7 +217,7 @@ end
 --get clicks and draw menus
 function mainFunc()
 	getConfig()
-	if updater then updateOS() else
+	if update then updateOS() else
 		if passOnBoot then requestPass() end
 		drawDesktop()
 		while true do
