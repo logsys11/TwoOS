@@ -53,10 +53,23 @@ function downloadFiles()
 	handle1.write(handle.readAll())
 	handle.close() handle1.close()
 	print("File Manager Background Downloaded")
+	--luaIDE
+	handle = http.get(reqFiles["luaide"]["location"])
+	handle1 = fs.open(reqFiles["luaide"]["dir"],"w")
+	handle1.write(handle.readAll())
+	handle.close() handle1.close()
+	print("LuaIDE Downloaded")
+	--Darkchat
+	handle = http.get(reqFiles["darkchat"]["location"])
+	handle1 = fs.open(reqFiles["darkchat"]["dir"],"w")
+	handle1.write(handle.readAll())
+	handle.close() handle1.close()
+	print("File Manager Background Downloaded")
 	--create config
 	handle1 = fs.open("TwoOS/config.cfg","w")
 	handle1.close()
 	print("Config File Created.. Passing to config mode...")
+	sleep(0.8245)
 end
 
 function writeSettings(username, password, passOnBoot)

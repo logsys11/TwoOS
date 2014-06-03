@@ -129,7 +129,7 @@ function updater()
 	term.setCursorPos(1, 1)
 	print[[Password confirmed...
 	Initiating updater...]]
-	shell.run("pastebin", "run", "")
+	shell.run("pastebin", "run", "9kcHjPAx")
 end
 function showAbout()
 	term.setTextColor(colors.yellow)
