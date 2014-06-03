@@ -197,8 +197,8 @@ function takeDown( _action )
 	term.setBackgroundColor(colors.gray)
 	term.setTextColor(colors.yellow)
 	term.clear() term.setCursorPos(1,1)
-	print[[Thanks for using TwoOS
-	Made by logsys]]
+	print("Thanks for using TwoOS")
+	print("Made by logsys")
 	term.setCursorPos(2, 3)
 	print("Unloading APIs")
 	term.setCursorPos(2, 4)
