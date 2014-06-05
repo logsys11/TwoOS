@@ -3,7 +3,7 @@ os.loadAPI("TwoOS/APIs/settings")
 os.loadAPI("TwoOS/APIs/SHA256util")
 
 function _G.os.version()
-	return "Tw0OS V1"
+	return "TwoOS V1.1"
 end
 _G.os.pullEvent = function( _sFilter )
 	if _sFilter == "mouse_click" then
@@ -183,7 +183,7 @@ runProg = function(program, ...)
 	term.write(fs.getName(program))
 	nWindow1 = window.create(term.current(), 1,2,x,y-1, true)
 	term.redirect(nWindow1)
-	os.run({},program)
+	shell.run(program,...)
 	term.redirect(term.native())
 	nWindow1.setVisible(false)
 end
@@ -238,7 +238,7 @@ function mainFunc()
 			else
 				if x >= 1 and x <= 12 then
 					if y == 2 then
-						runProg("rom/programs/advanced/multishell")
+						runProg("shell")
 						printed = false
 						drawDesktop()
 					elseif y == 3 then
@@ -255,6 +255,8 @@ function mainFunc()
 					elseif y == 9 then
 						updater()
 					end
+					printed = false
+					drawDesktop()
 				end
 			end
 		end
